@@ -34,7 +34,7 @@ app.post("/add", (req, res) => {
   var result = num1 + num2;
   return res.json({
     status: "success",
-    message: "the sum of given two numbers",
+    message: "the sum of given two number",
     sum: result,
   });
 });
