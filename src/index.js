@@ -88,16 +88,24 @@ app.post("/multiply", (req, res) => {
   });
 });
 
-app.post("/division", (req, res) => {
+app.post("/divide", (req, res) => {
   var num1 = req.body.num1;
   var num2 = req.body.num2;
 
   if (num2 === 0) {
     return res.json({
+      status: "error",
       message: "Cannot divide by zero",
     });
   }
   var reslt = num1 / num2;
+
+  if (reslt > 1000000) {
+    return res.json({
+      status: "error",
+      message: "Overflow",
+    });
+  }
   return res.json({
     status: "success",
     message: "The division of given numbers",
